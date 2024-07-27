@@ -3,12 +3,10 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./routers";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
+    <div className="m-0 p-0">
       <RouterProvider router={router} />
-    </>
+    </div>
   );
 }
 
