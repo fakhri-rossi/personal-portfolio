@@ -11,7 +11,7 @@ function DarkModeToggler() {
   };
 
   return (
-    <div className="bg-yellow-">
+    <div className="flex items-center">
       <button onClick={() => darkModeHandler()}>
         {dark && <IoMdSunny />}
         {!dark && <FaMoon />}

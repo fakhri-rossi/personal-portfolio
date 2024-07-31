@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 import RootLayout from "../layouts/RootLayout";
 import About from "../pages/About";
 import Projects from "../pages/projects";
+import TwitterClone from "../pages/projects/TwitterClone";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,12 @@ export const router = createBrowserRouter([
       {
         path: "/projects",
         element: <Projects />,
+        children: [
+          {
+            path: "/projects/1",
+            element: <TwitterClone />,
+          },
+        ],
       },
     ],
   },

@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url("./assets/fonts/Inter/Inter-VariableFont_slnt,wght.ttf") format(ttf);
+}
+
+@font-face {
+  font-family: "SF Pro Display", sans-serif;
+  src: url("./assets/fonts/SF Pro Display/SFProDisplay-Regular.ttf") format(ttf);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  /* font-family: "SF Pro Display", sans-serif; */
+}
+
+/* #main-app {
+  background-image: url("./assets/img/bg/mesh2.png");
+  background-size: cover;
+  background-attachment: fixed;
+} */
+
+/* #main-outlet {
+  background-image: url("./assets/img/bg/mesh2.png");
+  background-size: cover;
+  background-attachment: fixed;
+} */

@@ -19,22 +19,24 @@ export default function RootLayout() {
 
   return (
     <>
-      <div className="flex items-center gap-4 p-4 bg-white text-zink-950 dark:bg-black dark:text-white">
+      <nav className="sticky top-0 flex items-center gap-4 p-4 bg-white text-zink-950 dark:bg-black/50 backdrop-blur-xl dark:text-white">
         {navMenus.map((item, i) => (
           <NavLink
-            className={({ isActive }) => (isActive ? "text-blue-400" : "")}
+            className={({ isActive }) => (isActive ? "text-sky-400" : "")}
             to={item.to}
             key={i}>
-            <span className="font-semibold">{item.label}</span>
+            <span className="font-light">{item.label}</span>
           </NavLink>
         ))}
 
         <div>
           <DarkModeToggler />
         </div>
-      </div>
+      </nav>
 
-      <div className="min-h-screen bg-white text-white dark:bg-black dark:text-white">
+      <div
+        id="main-outlet"
+        className="min-h-screen bg-white text-zink-950 dark:bg-transparent dark:text-white">
         <Outlet />
       </div>
     </>
