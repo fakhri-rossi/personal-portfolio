@@ -1,15 +1,12 @@
 import photo2 from "../assets/img/photo-no-bg-square.png";
-import ProjectItem from "../components/ProjectItem";
-import Layout1 from "../components/layouting/Layout1";
 import Layout2 from "../components/layouting/Layout2";
-import ssWa from "../assets/img/project/wa-ss.png";
-import Badge from "../components/ui/Badge";
-import TechLogo from "../components/TechLogo";
+import twitterLight from "../assets/img/project/wireframe-twitter-clone-light.png";
+import twitterDark from "../assets/img/project/wireframetwitter-clone-dark.png";
 import mongoLogo from "../assets/img/logo/mongodb-square.png";
 import nuxtLogo from "../assets/img/logo/nuxt-square.png";
 import prismaLogo from "../assets/img/logo/prisma-square.jpg";
-import MyButton from "../components/ui/MyButton";
-import { NavLink } from "react-router-dom";
+import CardProjects from "../components/card/CardProjects";
+import Highlight from "../components/text/Highlight";
 
 export default function HomePage() {
   return (
@@ -17,8 +14,8 @@ export default function HomePage() {
       <div className="h-[100vh]">
         <Layout2
           leftContent={
-            <div className="flex items-center">
-              <h1 className="font-light text-3xl md:text-5xl md:pl-28 text-zinc-800 dark:text-gray-50">
+            <div className="flex items-center pt-5">
+              <h1 className="font-light text-3xl mt-5 md:mt-0 text-center md:text-start md:text-5xl md:pl-28 text-zinc-800 dark:text-gray-50">
                 Hi, <br />
                 I'm <span className="text-sky-400">Fakhri Rossi</span>, <br />A
                 Fullstack Web Developer
@@ -33,41 +30,61 @@ export default function HomePage() {
         />
       </div>
 
-      <div id="aboutme" className="py-8 min-h-screen">
+      <div id="aboutme" className="py-8 my-20 mb-40">
         <p className="font-light text-3xl md:text-4xl text-center">About Me</p>
+        <p className="font-light text-lg text-center px-10 md:px-40 mt-4">
+          Have <Highlight text="experience" /> in building self-project{" "}
+          <Highlight text="Full Stack" /> Web App that could handle User{" "}
+          <Highlight
+            text="Authentication & Authorization, Cloud File Uploading,
+          and CRUD Operation"
+          />
+          . My methodical way at building a Web App: Requirements Engineering,
+          Designing, Coding, Testing, and maintaining, brings me to build a Web
+          App by <Highlight text="30% more efficient and directed." />
+        </p>
       </div>
 
       <div className="py-8">
         <p className="font-light text-3xl md:text-4xl text-center">
           My Projects
         </p>
-        {/* <ProjectItem /> */}
-        <Layout1
-          leftContent={<img className="rounded-xl w-full" src={ssWa} alt="" />}
-          rightContent={
-            <div className="flex flex-col gap-2 md:pl-6">
-              <p className="font-light text-xl md:text-3xl">
-                Social Media - Twitter Clone
-              </p>
-              <div>
-                <Badge color="teal" text="Front End" />
-                <Badge color="red" text="Back End" />
-                <Badge color="blue" text="Full Stack" />
-              </div>
-              <div className="flex items-center gap-2">
-                <TechLogo logo={nuxtLogo} label="Nuxt 3" />
-                <TechLogo logo={mongoLogo} label="Mongo DB" />
-                <TechLogo logo={prismaLogo} label="Prisma ORM" />
-              </div>
-              <p className="font-light text-sm">
-                A social media like Twitter. User can create an account, login,
-                create tweets, etc.{" "}
-                <NavLink to="/projects/1" className="text-teal-400">
-                  Selengkapnya
-                </NavLink>
-              </p>
-            </div>
-          }
+
+        {/* Twitter clone */}
+        <CardProjects
+          lightThumbnail={twitterLight}
+          darkThumbnail={twitterDark}
+          to="projects/"
+          title="Social Media - Twitter Clone"
+          description="A social media like Twitter. User can create an account, login, create tweets, etc."
+          badges={[
+            {
+              color: "teal",
+              text: "Front End",
+            },
+            {
+              color: "red",
+              text: "Back End",
+            },
+            {
+              color: "blue",
+              text: "Full Stack",
+            },
+          ]}
+          techLogos={[
+            {
+              logo: nuxtLogo,
+              label: "Nuxt 3",
+            },
+            {
+              logo: mongoLogo,
+              label: "Mongo DB",
+            },
+            {
+              logo: prismaLogo,
+              label: "Prisma ORM",
+            },
+          ]}
         />
       </div>
     </div>

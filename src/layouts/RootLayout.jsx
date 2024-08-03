@@ -1,5 +1,6 @@
 import { Outlet, NavLink } from "react-router-dom";
 import DarkModeToggler from "../components/DarkModeToggler";
+import { useState } from "react";
 
 export default function RootLayout() {
   const navMenus = [
@@ -17,6 +18,12 @@ export default function RootLayout() {
     },
   ];
 
+  const [darkTheme, setDarkTheme] = useState(true);
+  const handleToggleTheme = () => {
+    setDarkTheme(!darkTheme);
+    document.body.classList.toggle("dark");
+  };
+
   return (
     <>
       <nav className="sticky top-0 flex items-center gap-4 p-4 bg-white text-zink-950 dark:bg-black/50 backdrop-blur-xl dark:text-white">
@@ -30,7 +37,10 @@ export default function RootLayout() {
         ))}
 
         <div>
-          <DarkModeToggler />
+          <DarkModeToggler
+            darkMode={darkTheme}
+            toggleTheme={handleToggleTheme}
+          />
         </div>
       </nav>
 
